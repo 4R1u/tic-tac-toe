@@ -43,5 +43,10 @@ const gameBoard = (function () {
         for (let i = 0; i < 9; ++i) board[i] = "";
     };
 
-    return { getCurrentPlayer, playRound, getBoard, getWinner, reset };
+    const isGameOver = () => {
+        for (let i = 0; i < 9; ++i) if (board[i] == "") return false;
+        return true;
+    };
+
+    return { getCurrentPlayer, playRound, getBoard, getWinner, reset, isGameOver };
 })();
