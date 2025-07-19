@@ -28,3 +28,43 @@ body {
     border-width: 1px;
     font-size: 64px;
 }
+
+.reset-game,
+.reset-wins,
+.reset-all {
+    width: 100px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.reset-button-container {
+    display: flex;
+    justify-content: center;
+    margin: 15px;
+}
+
+.reset-game {
+    background-color: red;
+}
+
+.reset-game:hover {
+    background-color: pink;
+}
+
+.reset-wins {
+    background-color: green;
+}
+
+.reset-wins:hover {
+    background-color: lightgreen;
+}
+
+.reset-all {
+    background-color: blue;
+}
+
+.reset-all:hover {
+    background-color: lightblue;
+}
