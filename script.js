@@ -53,15 +53,22 @@ const gameBoard = (function () {
 
 const displayController = (function (doc) {
     const gameSquareBtn = (i) => {
-        const btn = doc.querySelector(`button.game-square:nth-child(${i + 1})`);
         gameBoard.playRound(i);
-        btn.textContent = gameBoard.getBoard()[i];
+        doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
     };
 
-    return { gameSquareBtn };
+    const resetGameBtn = () => {
+        gameBoard.reset();
+        for (let i = 0; i < 9; ++i)
+            doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
+    };
+
+    return { gameSquareBtn, resetGameBtn };
 })(document);
 
-for (let i = 0; i < 9; ++i) {
-    const btn = document.querySelector(`button.game-square:nth-child(${i + 1})`);
-    btn.addEventListener("click", () => { displayController.gameSquareBtn(i) });
-}
+for (let i = 0; i < 9; ++i)
+    document.querySelector(`button.game-square:nth-child(${i + 1})`).addEventListener("click", () => {
+        displayController.gameSquareBtn(i);
+    });
+
+document.querySelector("button.reset-game").addEventListener("click", displayController.resetGameBtn);
