@@ -52,12 +52,16 @@ const gameBoard = (function () {
 })();
 
 const displayController = (function (doc) {
-    const showBoard = () => {
-        for (let i = 0; i < 9; ++i) {
-            const btn = doc.querySelector(`button.game-square:nth-child(${i + 1})`);
-            btn.textContent = gameBoard.getBoard()[i];
-        }
+    const gameSquareBtn = (i) => {
+        const btn = doc.querySelector(`button.game-square:nth-child(${i + 1})`);
+        gameBoard.playRound(i);
+        btn.textContent = gameBoard.getBoard()[i];
     };
 
-    return { showBoard };
+    return { gameSquareBtn };
 })(document);
+
+for (let i = 0; i < 9; ++i) {
+    const btn = document.querySelector(`button.game-square:nth-child(${i + 1})`);
+    btn.addEventListener("click", () => { displayController.gameSquareBtn(i) });
+}
