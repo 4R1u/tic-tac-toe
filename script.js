@@ -44,7 +44,7 @@ const gameBoard = (function () {
     };
 
     const isGameOver = () => {
-        for (let i = 0; i < 9; ++i) if (board[i] == "") return false;
+        for (let i = 0; i < 9; ++i) if (board[i] == "") return null != getWinner();
         return true;
     };
 
