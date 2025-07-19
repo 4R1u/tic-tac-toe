@@ -84,3 +84,11 @@ body {
     justify-content: space-between;
     margin-bottom: 20px;
 }
+
+.input-container:nth-child(1) {
+    text-align: left;
+}
+
+.input-container:nth-child(2) {
+    text-align: right;
+}
