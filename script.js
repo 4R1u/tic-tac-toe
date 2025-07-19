@@ -54,8 +54,8 @@ const gameBoard = (function () {
 
 const displayController = (function (doc) {
     const updateWinners = () => {
-        doc.querySelector('.wins-one:nth-child(1) .wins-player-name').textContent = doc.querySelector('.x-name').value;
-        doc.querySelector('.wins-one:nth-child(2) .wins-player-name').textContent = doc.querySelector('.o-name').value;
+        doc.querySelector('.wins-one:nth-child(1) .wins-player-name').textContent = doc.querySelector('.x-name').value ? doc.querySelector('.x-name').value : 'X';
+        doc.querySelector('.wins-one:nth-child(2) .wins-player-name').textContent = doc.querySelector('.o-name').value ? doc.querySelector('.o-name').value : 'O';
         const winner = gameBoard.getWinner();
         if (winner == null) return;
 
