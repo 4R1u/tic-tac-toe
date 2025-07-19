@@ -74,7 +74,11 @@ const displayController = (function (doc) {
             doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
     };
 
-    return { gameSquareBtn, resetGameBtn };
+    const resetWinsBtn = () => {
+        doc.querySelector('.x-wins').textContent = doc.querySelector('.o-wins').textContent = 0;
+    };
+
+    return { gameSquareBtn, resetGameBtn, resetWinsBtn };
 })(document);
 
 for (let i = 0; i < 9; ++i)
@@ -83,3 +87,5 @@ for (let i = 0; i < 9; ++i)
     });
 
 document.querySelector("button.reset-game").addEventListener("click", displayController.resetGameBtn);
+
+document.querySelector("button.reset-wins").addEventListener("click", displayController.resetWinsBtn);
