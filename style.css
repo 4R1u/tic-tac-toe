@@ -80,9 +80,11 @@ body {
 
 .input-area {
     background-color: #c50208;
+    color: white;
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 .input-container:nth-child(1) {
