@@ -50,3 +50,14 @@ const gameBoard = (function () {
 
     return { getCurrentPlayer, playRound, getBoard, getWinner, reset, isGameOver };
 })();
+
+const displayController = (function (doc) {
+    const showBoard = () => {
+        for (let i = 0; i < 9; ++i) {
+            const btn = doc.querySelector(`button.game-square:nth-child(${i + 1})`);
+            btn.textContent = gameBoard.getBoard()[i];
+        }
+    };
+
+    return { showBoard };
+})(document);
