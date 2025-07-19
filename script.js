@@ -41,6 +41,7 @@ const gameBoard = (function () {
 
     const reset = () => {
         for (let i = 0; i < 9; ++i) board[i] = "";
+        currentPlayer = 'X';
     };
 
     const isGameOver = () => {
