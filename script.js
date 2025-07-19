@@ -78,7 +78,12 @@ const displayController = (function (doc) {
         doc.querySelector('.x-wins').textContent = doc.querySelector('.o-wins').textContent = 0;
     };
 
-    return { gameSquareBtn, resetGameBtn, resetWinsBtn };
+    const resetAllBtn = () => {
+        resetGameBtn();
+        resetWinsBtn();
+    }
+
+    return { gameSquareBtn, resetGameBtn, resetWinsBtn, resetAllBtn };
 })(document);
 
 for (let i = 0; i < 9; ++i)
@@ -89,3 +94,5 @@ for (let i = 0; i < 9; ++i)
 document.querySelector("button.reset-game").addEventListener("click", displayController.resetGameBtn);
 
 document.querySelector("button.reset-wins").addEventListener("click", displayController.resetWinsBtn);
+
+document.querySelector("button.reset-all").addEventListener("click", displayController.resetAllBtn);
