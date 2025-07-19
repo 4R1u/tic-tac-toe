@@ -62,7 +62,9 @@ const displayController = (function (doc) {
     };
 
     const gameSquareBtn = (i) => {
-        if (gameBoard.isGameOver()) return;
+        if (gameBoard.isGameOver()) {
+            resetGameBtn();
+        }
         gameBoard.playRound(i);
         doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
         updateWinners();
