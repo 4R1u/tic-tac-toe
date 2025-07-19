@@ -52,9 +52,18 @@ const gameBoard = (function () {
 })();
 
 const displayController = (function (doc) {
+    const updateWinners = () => {
+        const winner = gameBoard.getWinner();
+        if (winner == null) return;
+
+        const div = doc.querySelector(`.${winner.toLowerCase()}-wins`);
+        div.textContent = +div.textContent + 1;
+    };
+
     const gameSquareBtn = (i) => {
         gameBoard.playRound(i);
         doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
+        updateWinners();
     };
 
     const resetGameBtn = () => {
