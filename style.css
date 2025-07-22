@@ -22,6 +22,7 @@ body {
     grid-template: repeat(3, 80px) / repeat(3, 80px);
     gap: 2.5px;
     padding: 5px;
+    border-radius: 7.5px;
 }
 
 .game-square {
@@ -102,4 +103,10 @@ body {
 .turn {
     background-color: #bccbde;
     color: black;
+    border-radius: 10px;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
 }
