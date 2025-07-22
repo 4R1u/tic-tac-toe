@@ -73,6 +73,8 @@ const displayController = (function (doc) {
     const gameSquareBtn = (i) => {
         if (gameBoard.isGameOver()) {
             resetGameBtn();
+            updateTurn();
+            return;
         }
         gameBoard.playRound(i);
         doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
