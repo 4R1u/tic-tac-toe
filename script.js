@@ -63,12 +63,20 @@ const displayController = (function (doc) {
         div.textContent = +div.textContent + 1;
     };
 
+    const updateTurn = () => {
+        for (element of doc.querySelectorAll('.input-container'))
+            element.classList.remove('turn');
+
+        doc.querySelector(`.input-container:nth-child(${gameBoard.getCurrentPlayer() == 'X' ? 1 : 2})`).classList.add("turn");
+    };
+
     const gameSquareBtn = (i) => {
         if (gameBoard.isGameOver()) {
             resetGameBtn();
         }
         gameBoard.playRound(i);
         doc.querySelector(`button.game-square:nth-child(${i + 1})`).textContent = gameBoard.getBoard()[i];
+        updateTurn();
         updateWinners();
     };
 

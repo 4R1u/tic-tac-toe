@@ -87,10 +87,18 @@ body {
     padding: 10px;
 }
 
+.input-container {
+    padding: 10px;
+}
+
 .input-container:nth-child(1) {
     text-align: left;
 }
 
 .input-container:nth-child(2) {
     text-align: right;
+}
+
+.turn {
+    background-color: #393f4d;
 }
